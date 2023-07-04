@@ -24,7 +24,7 @@ class HeadHunterAPI(JobSiteAPI):
         """Создание экземпляра класса HeadHunterAPI"""
         self.url = "https://api.hh.ru/vacancies"
 
-    def get_vacancies(self, keyword) -> dict:
+    def get_vacancies(self, keyword: str) -> dict:
         """Возвращает отфильтрованные по ключевому слову вакансии с сайта """
         params = {
             "text": keyword,  # ключевое слово фильтра
@@ -39,7 +39,7 @@ class HeadHunterAPI(JobSiteAPI):
             raise Exception(f"Request failed with status code: {response.status_code}")
 
     @staticmethod
-    def clean_vacancies(data) -> list:
+    def clean_vacancies(data: dict) -> list:
         """Приводит данные к единому стандарту """
         clean_vacancies = []
         vacancies = data.get("items", [])
@@ -72,7 +72,7 @@ class SuperJobAPI(JobSiteAPI):
             'X-Api-App-Id': os.getenv('API_KEY'),
         }
 
-    def get_vacancies(self, keyword) -> dict:
+    def get_vacancies(self, keyword: str) -> dict:
         """Возвращает отфильтрованные по ключевому слову вакансии с сайта """
 
         params = {

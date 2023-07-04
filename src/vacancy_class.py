@@ -1,7 +1,7 @@
 class Vacancy:
     """Класс для работы с вакансиями """
 
-    def __init__(self, title, url, salary, employer) -> None:
+    def __init__(self, title: str, url: str, salary: int, employer: str) -> None:
         """ Создание экземпляра класса Vacancy
         :param title: название вакансии
         :param url: ссылка на вакансию
@@ -22,22 +22,22 @@ class Vacancy:
         return f"{self.title} ({self.url})"
 
     @staticmethod
-    def _is_valid_title(title) -> bool:
+    def _is_valid_title(title: str) -> bool:
         """Проверка названия вакансии """
         return len(title) > 0 and isinstance(title, str)
 
     @staticmethod
-    def _is_valid_url(url) -> bool:
+    def _is_valid_url(url: str) -> bool:
         """Проверка названия ссылки на вакансию """
         return url.startswith("https://") and isinstance(url, str)
 
     @staticmethod
-    def _is_valid_salary(salary) -> bool:
+    def _is_valid_salary(salary: int) -> bool:
         """Проверка названия зарплаты """
         return isinstance(salary, int)
 
     @staticmethod
-    def _is_valid_employer(employer) -> bool:
+    def _is_valid_employer(employer: str) -> bool:
         """Проверка названия работодателя """
         return len(employer) > 0 and isinstance(employer, str)
 

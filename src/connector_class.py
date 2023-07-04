@@ -31,7 +31,7 @@ class JsonConnector(Connector):
 
     file_name = "vacancies.json"
 
-    def add_vacancies(self, vacancies) -> None:
+    def add_vacancies(self, vacancies: dict) -> None:
         """Добавляет вакансии в json-файл """
         if os.stat(self.file_name).st_size == 0:  # если файл пустой
             with open(self.file_name, "w", encoding='utf8') as file:
@@ -58,7 +58,7 @@ class JsonConnector(Connector):
 
             return filtered_list
 
-    def top_vacancies(self, top_n) -> list:
+    def top_vacancies(self, top_n: int) -> list:
         """Возвращает top_n вакансий из json-файла, отсортированные по уровню зарплаты """
 
         with open(self.file_name, "r", encoding='utf8') as file:
